@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Statistics</title>
+        <link rel="stylesheet" href="static/style.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <style>
+            .graph-box {
+                border: 1px solid #ccc;
+                padding: 10px;
+                margin-bottom: 20px;
+                display: flex;
+                align-items: center;
+            }
+            .graph-box .note {
+            flex: 1;
+            font-size: 14px;
+        }
+        </style>
+    </head>
+    <body>
+        <div class="text-bg-success p-3" style="text-align: center; font-size: x-large; font-weight: 650;">INFLUENCER ENGAGEMENT & SPONSORSHIP CO-ORDINATION PLATFORM</div>
+        <br>
+        <a href="/admin_stats" class="btn btn-secondary">Go Back</a>
+        <h2 style="text-align: center;">Influencer Statistics</h2>
+        <h4 class="text-right">LATEST - Most Followed Influencer(Any Platform) : {{ max_reach_name }}</h4>
+        <br>
+        <div class="graph-box">
+          <img src="/static/influ_reach.png" alt="influ_reach_stats">
+          <!-- <div class="note">
+            <h4>Distribution of influencers by reach (followers).</h4>
+        </div> -->
+        </div>
+        <div class="graph-box">
+            <img src="/static/influ_category.png" alt="influ_catg_stats"> <br>
+        </div>
+        <div class="graph-box">
+            <img src="/static/influ_platform.png" alt="influ_platform_stats"> <br>
+        </div>
+          <div class="graph-box">
+            <img src="/static/influ_flag.png" alt="influ_flag_stats"><br>
+          </div>
+    </div>
+    </body>
+</html>
+

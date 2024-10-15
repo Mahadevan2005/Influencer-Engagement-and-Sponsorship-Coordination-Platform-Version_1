@@ -1,0 +1,65 @@
+*{
+    margin: 0px;
+}
+#main,#canvas{
+    border:2px solid black;
+}
+#canvas{
+    width: 80%;
+    margin: auto;
+    height: 700px;
+} 
+#campaign-form-body{
+    border: 1px solid grey;
+    width: 550px;
+    height: 830px;
+    margin: auto;
+    margin-top: 3px;
+    padding: 5px;
+    border-radius: 5px;
+}
+#user-form-body{
+    border: 1px solid grey;
+    width: 353px;
+    height: 479px;
+    margin: auto;
+    margin-top: 116px;
+    padding: 5px;
+    border-radius: 5px;
+}
+#influencer-form-body{
+    border: 1px solid grey;
+    width: 360px;
+    height: 673px;
+    margin: auto;
+    margin-top: 13px;
+    padding: 5px;
+    border-radius: 5px;
+}
+#sponsor-form-body{
+    border: 1px solid grey;
+    width: 360px;
+    height: 677px;
+    margin: auto;
+    margin-top: 14px;
+    padding: 5px;
+    border-radius: 5px;
+}
+#admin-form-body{
+    border: 1px solid grey;
+    width: 353px;
+    height: 401px;
+    margin: auto;
+    margin-top: 157px;
+    padding: 5px;
+    border-radius: 5px;
+}
+#user{
+    text-align: center;
+    padding-top: 4%;
+}
+
+.headings{
+    margin: 3px;
+    padding-left: 8px;
+}

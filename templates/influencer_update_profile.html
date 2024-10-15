@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Update Profile</title>
+        <link rel="stylesheet" href="static/style.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <style>
+            body {
+            background-color: #f0f7ff; 
+            color: #333333; 
+            font-family: Arial, sans-serif;
+        }
+        </style>
+    </head>
+    <body>
+        <div class="text-bg-success p-3" style="text-align: center; font-size: x-large; font-weight: 650;">INFLUENCER ENGAGEMENT & SPONSORSHIP CO-ORDINATION PLATFORM</div>
+        <div class="container mt-5">
+            <h3>Update Profile</h3>
+                    {% if error %}
+                    <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                    </div>
+                    {% endif %}
+            <form method="POST" action="/influencer_update_profile/{{ influencer.id }}">
+                <div class="mb-3">
+                    <label for="category" class="form-label">Category</label>
+                    <input type="text" class="form-control" id="category" name="category" placeholder="enter category" value="{{ influencer.category }}">
+                </div>
+                <div class="mb-3">
+                    <label for="niche" class="form-label">Niche</label>
+                    <input type="text" class="form-control" id="niche" name="niche" placeholder="enter niche" value="{{ influencer.niche }}">
+                </div>
+                <div class="mb-3">
+                    <label for="reach" class="form-label">Reach</label>
+                    <input type="number" class="form-control" id="reach" name="reach" placeholder="enter reach" value="{{ influencer.reach }}">
+                </div>
+                <div class="mb-3">
+                    <label for="platform" class="form-label">Platform</label>
+                    <input type="text" class="form-control" id="platform" name="platform" placeholder="enter platform" value="{{ influencer.platform }}">
+                </div>
+                <button type="submit" class="btn btn-primary">Update</button>
+                <a href="/influencer_dash"><button type="button" class="btn btn-primary">Go Back</button></a>
+            </form>
+        </div>
+    </body>
+</html>

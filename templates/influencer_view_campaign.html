@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Campaign Details</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    <div class="text-bg-success p-3" style="text-align: center; font-size: x-large; font-weight: 650;">INFLUENCER ENGAGEMENT & SPONSORSHIP CO-ORDINATION PLATFORM</div>
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/find_campaigns">Go Back</a>
+        </div>
+    </nav>
+    <div class="container">
+        <h3>Campaign Details</h3>
+        <br>
+        <div class="card">
+            <div class="card-header">
+                <h3> {{ campaign.name }} </h3>
+            </div>
+            <div class="card-body">
+                <p><strong>Sponsor Name:</strong> {{ sponsor.username }}</p>
+                <p><strong>Description:</strong> {{ campaign.description }}</p>
+                <p><strong>Niche:</strong> {{ campaign.niche }}</p>
+                <p><strong>Start Date:</strong> {{ campaign.start_date }}</p>
+                <p><strong>End Date:</strong> {{ campaign.end_date }}</p>
+                <p><strong>Budget:</strong> {{ campaign.campaign_budget }}</p>
+                <p><strong>Visibility:</strong> {{ campaign.visibility }}</p>
+                <p><strong>Goals:</strong> {{ campaign.goals }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-3">
+        <h2>Ad Requests for {{ campaign.name}}:</h2>
+        <ul class="list-group">
+            {% if adrequests %}
+            {% for adrequest in adrequests %}
+                <li class="list-group-item">
+                    <strong>Influencer Name:</strong> {{ adrequest.influencer.name }}<br>
+                    <strong>Messages:</strong> {{ adrequest.messages }}<br>
+                    <strong>Requirements:</strong> {{ adrequest.requirements }}<br>
+                    <strong>Payment Amount:</strong> {{ adrequest.payment_amt }}<br>
+                    <strong>Platform:</strong> {{ adrequest.influencer.platform }}<br>
+                    <strong>Status:</strong> {{ adrequest.status }}
+                    <br>
+                    {% if adrequest.status == 'Accepted by Sponsor' %}
+                    <a href="/influ_edit_adrequest/{{ adrequest.id }}" class="btn btn-primary btn-back">Edit Ad Request</a>
+                    {% else %}
+                    <a href="/infl_del_ad/{{ adrequest.id }}" class="btn btn-danger btn-back">Delete Ad Request</a>
+                    <a href="/influ_edit_adrequest/{{ adrequest.id }}" class="btn btn-primary btn-back">Edit Ad Request</a>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <h3>No Ad Requests</h3>
+        {% endif %}
+        <br>
+</body>
+</html>

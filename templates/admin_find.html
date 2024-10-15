@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Find - Admin Dashboard</title>
+    <link rel="stylesheet" href="static/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    <div class="text-bg-success p-3" style="text-align: center; font-size: x-large; font-weight: 650;">INFLUENCER ENGAGEMENT & SPONSORSHIP CO-ORDINATION PLATFORM</div>
+    <div class="container mt-4">
+        <div class="row align-items-center">
+            <div class="col text-start">
+                <a href="/admin_dash" class="btn btn-secondary">Go Back</a>
+            </div>
+            <div class="col text-center">
+                <h2>All Details</h2>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+    <br>
+    <div class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="alert alert-dismissible fade show" role="alert">
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">{{ message }}</div>
+                    {% endfor %}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endif %}
+        {% endwith %}
+    </div>
+    <h3 style="text-align: center;">Campaigns</h3>
+    <div class="container">
+        <table class="table table-striped">
+            <thead> 
+                <tr>
+                    <th scope="col">Campaign Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Budget</th>
+                    <th scope="col">Start Date</th>
+                    <th scope="col">End Date</th>
+                    <th scope="col">Visibility</th>
+                    <th scope="col">Goals</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for campaign in campaigns %}
+                <tr>
+                    <td>{{ campaign.name }}</td>
+                    <td>{{ campaign.description }}</td>
+                    <td>{{ campaign.campaign_budget }}</td>
+                    <td>{{ campaign.start_date }}</td>
+                    <td>{{ campaign.end_date }}</td>
+                    <td>{{ campaign.visibility }}</td>
+                    <td>{{ campaign.goals }}</td>
+                    <!-- <td><a href="#"><button type="button" class="btn btn-primary">View</button></td></a> -->
+                    <td><a href="{{ url_for('flag_campaign', campaign_id=campaign.id) }}"><button type="button" class="btn btn-danger">Flag</button></td></a>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <h3 style="text-align: center;">Influencers</h3>
+    <div class="container">
+        <table class="table table-striped">
+            <thead> 
+                <tr>
+                    <th scope="col">Influencer Name</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Niche</th>
+                    <th scope="col">Reach</th>
+                    <th scope="col">Platform</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for influencer in influencers %}
+                <tr>
+                    <td>{{ influencer.name }}</td>
+                    <td>{{ influencer.category }}</td>
+                    <td>{{ influencer.niche }}</td>
+                    <td>{{ influencer.reach }}</td>
+                    <td>{{ influencer.platform }}</td>
+                    <!-- <td><a href="#"><button type="button" class="btn btn-primary">View</button></td></a> -->
+                    <td><a href="{{ url_for('flag_influencer', influencer_id=influencer.id) }}"><button type="button" class="btn btn-danger">Flag</button></td></a>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <h3 style="text-align: center;">Sponsors</h3>
+    <div class="container">
+        <table class="table table-striped">
+            <thead> 
+                <tr>
+                    <th scope="col">Sponsor Name</th>
+                    <th scope="col">Industry</th>
+                    <th scope="col">Company Name</th>
+                    <th scope="col">Company Budget</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for sponsor in sponsors %}
+                <tr>
+                    <td>{{ sponsor.username }}</td>
+                    <td>{{ sponsor.industry }}</td>
+                    <td>{{ sponsor.company_name }}</td>
+                    <td>{{ sponsor.company_budget }}</td>
+                    <!-- <td><a href="#"><button type="button" class="btn btn-primary">View</button></td></a> -->
+                    <td><a href="{{ url_for('flag_sponsor', sponsor_id=sponsor.id) }}"><button type="button" class="btn btn-danger">Flag</button></td></a>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

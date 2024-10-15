@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Campaign Creation</title>
+        <link rel="stylesheet" href="static/style.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <style>
+            body {
+            background-color: #f0f7ff; 
+            color: #333333; 
+            font-family: Arial, sans-serif;
+        }
+        </style>
+    </head>
+    <body>
+                <div id="campaign-form-body">
+                    <h3>New Campaign Creation</h3>
+                    <p></p>
+                    {% if error %}
+                    <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                    </div>
+                    {% endif %}
+                    <form action="/create_campaign" method="post">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Campaign Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="enter campaign name" name="name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Campaingn Description</label>
+                            <input type="text" class="form-control" id="description" placeholder="enter description" name="desc">
+                        </div>
+                        <div class="mb-3">
+                            <label for="budget" class="form-label">Campaign Budget</label>
+                            <input type="number" class="form-control" id="budget" placeholder="enter Budget" name="budget">
+                        </div>
+                        <div class="mb-3">
+                            <label for="niche" class="form-label">Campaign Niche</label>
+                            <input type="text" class="form-control" id="niche" placeholder="enter Niche" name="niche">
+                        </div>
+                        <div class="mb-3">
+                            <label for="startdate" class="form-label">Start Date (dd-mm-yyyy)</label>
+                            <input type="date" class="form-control" id="startdate" placeholder="enter Start Date" name="sdate">
+                        </div>
+                        <div class="mb-3">
+                            <label for="enddate" class="form-label">End Date (dd-mm-yyyy)</label>
+                            <input type="date" class="form-control" id="enddate" placeholder="enter End Date" name="edate">
+                        </div>
+                        <div class="mb-3">
+                            <label for="visibility" class="form-label">Visibility</label>
+                            <select class="form-control" id="visibility" name="visibility" required>
+                                <option value="" disabled selected hidden>Choose visibility</option>
+                                <option value="Public">Public</option>
+                                <option value="Private">Private</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="goals" class="form-label">Goals</label>
+                            <input type="text" class="form-control" id="goals" placeholder="enter Goals" name="goals">
+                        </div>
+                        <div style="text-align: center;">
+                            <input type="submit" class="btn btn-primary" value="Create">
+                        </div>
+                    </form>
+                        <a href="/sponsor_campaign"><h5 style="text-align: center;">Go to Campaigns Page</h5></a>
+                </div>
+                <br>
+    </body>
+</html>
